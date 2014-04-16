@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
+  <App xmlns="" ProductID="{1e88a7bb-d2f3-4374-bc7c-213d6344dd52}" Title="Routes of Contacts" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Gilberto L. Azambuja Lima" Description="The app shows the route between two chosen contact addresses registered in the device or between the device current position and one of these contact addresses, using the maps resource of Windows Phone." Publisher="RoutesOfContacts">
+    <IconPath IsRelative="true" IsResource="false">View\Contents\Images\Assets\ApplicationIcon.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_LOCATION" />
+      <Capability Name="ID_CAP_SENSORS" />
+      <Capability Name="ID_CAP_CONTACTS" />
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="RoutesOfContactsToken" TaskName="_default">
+        <TemplateType5>
+          <BackgroundImageURI IsRelative="true" IsResource="false">View\Contents\Images\Assets\Background.png</BackgroundImageURI>
+          <Count>0</Count>
+          <Title>Routes of Contacts</Title>
+        </TemplateType5>
+      </PrimaryToken>
+    </Tokens>
+  </App>
+</Deployment>

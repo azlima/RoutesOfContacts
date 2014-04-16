@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App ApplicationId="MyBingMapsApplicationId" >
+  <Emails DeveloperEmailTo="gilbertoluis@terra.com.br"></Emails>
+  <SupportedCultures>
+    <SupportedCulture Culture="en-US" Description="English (United States)" ImageFlagPath="/View/Contents/Images/Flags/USA.png" />
+    <SupportedCulture Culture="es-ES" Description="Español (España)" ImageFlagPath="/View/Contents/Images/Flags/Spain.png" />
+    <SupportedCulture Culture="pt-BR" Description="Português (Brasil)" ImageFlagPath="/View/Contents/Images/Flags/Brazil.png" />
+  </SupportedCultures>
+</App>

@@ -1,0 +1,61 @@
+﻿<phone:PhoneApplicationPage 
+    xmlns:views="clr-namespace:RoutesOfContacts.View.Contact"
+    xmlns:bar="clr-namespace:BindableApplicationBar;assembly=BindableApplicationBar"
+    x:Class="RoutesOfContacts.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+    IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Opacity="{Binding Opacity, Mode=TwoWay}" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>      
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+                <StackPanel x:Name="MainStackPanel" Opacity="{Binding Opacity, Mode=TwoWay}" Width="450">
+                    <views:OriginContactView x:Name="originContactView" Margin="0,0,0,10" ></views:OriginContactView>
+                    <views:DestinationContactView x:Name="destinationContactView" ></views:DestinationContactView>              
+                    <Button Name="showRouteButton" Width="280" Margin="0,10,0,0" Click="showRouteButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="View\Contents\Images\Icons\map.png" Stretch="Fill" Margin="0,0,0,0" Height="40" Width="50" HorizontalAlignment="Center"></Image>
+                            <TextBlock Name="showRouteButtonContent" Margin="15,0,0,0"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            <TextBlock HorizontalAlignment="Center" Name="loadingText" Height="70" Margin="0,0,0,160" FontSize="20" FontFamily="Segoe WP"  Visibility="{Binding Visibility, Mode=TwoWay}" />
+            <ProgressBar HorizontalAlignment="Center" Width="440" Height="20" Name="loadingProgressBar" Margin="0,0,0,240" Visibility="{Binding Visibility, Mode=TwoWay}" IsIndeterminate="{Binding IsIndeterminate, Mode=TwoWay}"></ProgressBar>
+        </Grid>
+    </Grid>
+
+    <bar:Bindable.ApplicationBar>
+        <bar:BindableApplicationBar Opacity="{Binding Opacity, Mode=TwoWay}" IsMenuEnabled="{Binding IsEnabled, Mode=TwoWay}">
+            <bar:BindableApplicationBarButton Text="{Binding AlternateButton, Mode=TwoWay}" IconUri="/View/Contents/Images/Icons/alternate-up-and-down.png" IsEnabled="{Binding IsEnabled, Mode=TwoWay}" Command="{Binding AlternateButtonCommand, Mode=OneWay}" />
+            <bar:BindableApplicationBar.MenuItems>
+                <bar:BindableApplicationBarMenuItem Text="{Binding LanguagesMenuItem, Mode=TwoWay}" IsEnabled="{Binding IsEnabled, Mode=TwoWay}" Command="{Binding LanguagesMenuItemCommand, Mode=OneWay}" />
+                <bar:BindableApplicationBarMenuItem Text="{Binding RateAndReviewMenuItem, Mode=TwoWay}" IsEnabled="{Binding IsEnabled, Mode=TwoWay}" Command="{Binding RateAndReviewMenuItemCommand, Mode=OneWay}" />
+                <bar:BindableApplicationBarMenuItem Text="{Binding ContributeDonateMenuItem, Mode=TwoWay}" IsEnabled="{Binding IsEnabled, Mode=TwoWay}" Command="{Binding ContributeDonateMenuItemCommand, Mode=OneWay}" />
+                <bar:BindableApplicationBarMenuItem Text="{Binding TalkToTheDeveloperMenuItem, Mode=TwoWay}" IsEnabled="{Binding IsEnabled, Mode=TwoWay}" Command="{Binding TalkToTheDeveloperMenuItemCommand, Mode=OneWay}" />
+                <bar:BindableApplicationBarMenuItem Text="{Binding AboutMenuItem, Mode=TwoWay}" IsEnabled="{Binding IsEnabled, Mode=TwoWay}" Command="{Binding AboutMenuItemCommand, Mode=OneWay}" />
+            </bar:BindableApplicationBar.MenuItems>
+        </bar:BindableApplicationBar>
+    </bar:Bindable.ApplicationBar>
+</phone:PhoneApplicationPage>
